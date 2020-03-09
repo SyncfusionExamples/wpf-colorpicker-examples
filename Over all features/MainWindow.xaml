@@ -1,0 +1,124 @@
+﻿<Window x:Class="ColorPicker_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ColorPicker_WPF"
+        xmlns:syncfusion="clr-namespace:Syncfusion.Windows.Tools;assembly=Syncfusion.Shared.Wpf"
+        xmlns:syncfusion1="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Width="850" Height="700">
+    <Window.DataContext>
+        <local:ViewModel></local:ViewModel>
+    </Window.DataContext>
+
+    <Grid x:Name="LayoutRoot" Background="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Margin="0"  Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Rectangle Fill="{Binding SelectedBrush,Mode=TwoWay}"
+                           Width="50" Height="50" Grid.Row="0"></Rectangle>
+                <syncfusion1:ColorPicker x:Name="colorPicker" Margin="20"
+                                        Background="LightPink"
+                                        Brush="{Binding SelectedBrush,Mode=TwoWay}"
+                                        BorderBrush="Red"
+                                        BrushMode="{Binding BrushModes, Mode=TwoWay}"
+                                        Color="{Binding SelectedColor, Mode=TwoWay}"
+                                        ColorEditBackground="LightGreen"
+                                        VisualizationStyle="{Binding ColorSelectionMode, Mode=TwoWay}"
+                                        EnableSolidToGradientSwitch="{Binding EnableSolidToGradientSwitch, Mode=TwoWay}"
+                                        EnableToolTip="{Binding EnableToolTip, Mode=TwoWay}"
+                                        FlowDirection="{Binding FlowDirection, Mode=TwoWay}"
+                                        GradientBrushDisplayMode="{Binding GradientBrushDisplayMode, Mode=TwoWay}"
+                                        GradientPropertyEditorMode="{Binding GradientPropertyEditorMode, Mode=TwoWay}"
+                                        IsAlphaVisible ="{Binding IsAlphaVisible, Mode=TwoWay}"
+                                        IsColorPaletteVisible ="{Binding IsColorPaletteVisible, Mode=TwoWay}"                                        
+                                         HorizontalAlignment="Center"
+                                         BorderThickness="1" 
+                                         VerticalAlignment="Top"  
+                                        Width="200"
+                                        Height="30"
+                                         Grid.Row="2" >                    
+                </syncfusion1:ColorPicker>
+            </Grid>
+        </Border>
+
+        <GroupBox Margin="0,0,3,3" FontWeight="Bold" FontSize="14" FontFamily="Segoe UI" Grid.Column="1" BorderBrush="Silver" Header="User Options">
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="220"></ColumnDefinition>
+                    <ColumnDefinition Width="150" ></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Margin="3" Text ="Brush Modes" Grid.Row="0" VerticalAlignment="Center" Grid.Column="0"/>
+                <ComboBox FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Grid.Row="0" Grid.Column="1" SelectedItem="{Binding BrushModes, Mode=TwoWay}"  SelectedIndex="1" VerticalAlignment="Center" Margin="3" Name="button" >
+                    <syncfusion:BrushModes>Solid</syncfusion:BrushModes>
+                    <syncfusion:BrushModes>Gradient</syncfusion:BrushModes>
+                </ComboBox>
+
+                <TextBlock FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Margin="3" Text ="GradientBrushDisplayMode"  Grid.Row="1"  Grid.Column="0"/>
+                <ComboBox  FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" SelectedItem="{Binding GradientBrushDisplayMode, Mode=TwoWay}" Grid.Row="1" Grid.Column="1" Margin="3" Name="grouping"  >
+                    <syncfusion:GradientBrushDisplayMode>Default</syncfusion:GradientBrushDisplayMode>
+                    <syncfusion:GradientBrushDisplayMode>Extended</syncfusion:GradientBrushDisplayMode>
+                </ComboBox>
+
+                <TextBlock FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Margin="3" Text ="GradientPropertyEditorMode"  Grid.Row="2"  Grid.Column="0"/>
+                <ComboBox  FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" SelectedItem="{Binding GradientPropertyEditorMode, Mode=TwoWay}" Grid.Row="2" Grid.Column="1" Margin="3" Name="GradientPropertyEditor"  >
+                    <syncfusion:GradientPropertyEditorMode>Popup</syncfusion:GradientPropertyEditorMode>
+                    <syncfusion:GradientPropertyEditorMode>Extended</syncfusion:GradientPropertyEditorMode>
+                </ComboBox>
+
+                <TextBlock FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Margin="3" Text ="RGB-HSV switching"  Grid.Row="3"  Grid.Column="0"/>
+                <ComboBox FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Grid.Row="3" Grid.Column="1" SelectedItem="{Binding ColorSelectionMode, Mode=TwoWay}"  SelectedIndex="1" Margin="3" Name="nestedProperties"  >
+                    <syncfusion:ColorSelectionMode>RGB</syncfusion:ColorSelectionMode>
+                    <syncfusion:ColorSelectionMode>HSV</syncfusion:ColorSelectionMode>
+                </ComboBox>
+
+                <TextBlock FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Margin="3" Text ="Flow Direction"  Grid.Row="4"  Grid.Column="0"/>
+                <ComboBox FontWeight="Normal" FontFamily="Segoe UI" SelectedItem="{Binding FlowDirection, Mode=TwoWay}" FontSize="13" Grid.Row="4" Grid.Column="1"  SelectedIndex="1" Margin="3" Name="sorting"  >
+                    <FlowDirection>RightToLeft</FlowDirection>
+                    <FlowDirection>LeftToRight</FlowDirection>
+                </ComboBox>
+
+                <TextBlock FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Margin="3" Text ="EnableSolidToGradientSwitch"  Grid.Row="5" />
+                <CheckBox FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Grid.Row="5" Grid.Column="1" IsChecked="{Binding EnableSolidToGradientSwitch, Mode=TwoWay}" Margin="3" Name="search" />
+
+                <TextBlock FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Margin="3" Text ="Enable Tooltip"  Grid.Row="6"  Grid.Column="0"/>
+                <CheckBox FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Grid.Row="6" Grid.Column="1" IsChecked="{Binding EnableToolTip, Mode=TwoWay}" Margin="3" Name="description" />
+
+                <TextBlock FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Margin="3" Text ="Alpha Visibility"  Grid.Row="7"  Grid.Column="0"/>
+                <CheckBox  FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Grid.Row="7" Grid.Column="1" IsChecked="{Binding IsAlphaVisible, Mode=TwoWay}"  Margin="3" Name="isAlphaVisible"  />
+
+                <TextBlock FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Margin="3" Text ="ColorPalette Visibility"  Grid.Row="8"  Grid.Column="0"/>
+                <CheckBox  FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Grid.Row="8" Grid.Column="1" IsChecked="{Binding IsColorPaletteVisible, Mode=TwoWay}"  Margin="3" Name="isColorPaletteVisible"  />
+
+
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>

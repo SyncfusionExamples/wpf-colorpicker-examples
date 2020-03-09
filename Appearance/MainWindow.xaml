@@ -1,0 +1,84 @@
+﻿<Window x:Class="ColorPicker_Appearance.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:local="clr-namespace:ColorPicker_Appearance"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Width="850" Height="700">
+    <Window.DataContext>
+        <local:ViewModel></local:ViewModel>
+    </Window.DataContext>
+
+    <Grid x:Name="LayoutRoot" Background="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Margin="0"  Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Rectangle Fill="{Binding SelectedBrush,Mode=TwoWay}"
+                           Width="50" Height="50" Grid.Row="0"></Rectangle>
+                <syncfusion:ColorPicker x:Name="colorPicker" Margin="20"
+                                        Background="LightPink"
+                                        Brush="{Binding SelectedBrush,Mode=TwoWay}"
+                                        BorderBrush="Red"
+                                        Color="{Binding SelectedColor, Mode=TwoWay}"
+                                        ColorEditBackground="{Binding SelectedBrush,Mode=TwoWay}"
+                                        EnableToolTip="{Binding EnableToolTip, Mode=TwoWay}"
+                                        FlowDirection="{Binding FlowDirection, Mode=TwoWay}"
+                                        IsAlphaVisible ="{Binding IsAlphaVisible, Mode=TwoWay}"                                    
+                                        HorizontalAlignment="Center"
+                                        BorderThickness="1" 
+                                        VerticalAlignment="Top"  
+                                        Width="50"
+                                        Height="30"
+                                        Grid.Row="2" >
+                    <syncfusion:ColorPicker.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Ellipse Fill="{Binding Brush, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type syncfusion:ColorPicker}}}"
+                                         Name="selectedColorEllipse"
+                                         HorizontalAlignment="Left" 
+                                         Width="20" Height="20" Margin="2" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </syncfusion:ColorPicker.HeaderTemplate>
+                </syncfusion:ColorPicker>
+            </Grid>
+        </Border>
+
+        <GroupBox Margin="0,0,3,3" FontWeight="Bold" FontSize="14" FontFamily="Segoe UI" Grid.Column="1" BorderBrush="Silver" Header="User Options">
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="220"></ColumnDefinition>
+                    <ColumnDefinition Width="150" ></ColumnDefinition>
+                </Grid.ColumnDefinitions>             
+
+                <TextBlock FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Margin="3" Text ="Flow Direction"  Grid.Row="0"  Grid.Column="0"/>
+                <ComboBox FontWeight="Normal" FontFamily="Segoe UI" SelectedItem="{Binding FlowDirection, Mode=TwoWay}" FontSize="13" Grid.Row="0" Grid.Column="1"  SelectedIndex="1" Margin="3" Name="sorting"  >
+                    <FlowDirection>RightToLeft</FlowDirection>
+                    <FlowDirection>LeftToRight</FlowDirection>
+                </ComboBox>
+
+                <TextBlock FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Margin="3" Text ="Enable Tooltip"  Grid.Row="1"  Grid.Column="0"/>
+                <CheckBox FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Grid.Row="1" Grid.Column="1" IsChecked="{Binding EnableToolTip, Mode=TwoWay}" Margin="3" Name="description" />
+
+                <TextBlock FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Margin="3" Text ="Alpha Visibility"  Grid.Row="2"  Grid.Column="0"/>
+                <CheckBox  FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Grid.Row="2" Grid.Column="1" IsChecked="{Binding IsAlphaVisible, Mode=TwoWay}"  Margin="3" Name="isAlphaVisible"  />
+
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>
