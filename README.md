@@ -4,7 +4,7 @@ This repository contains the samples that demonstrate the functionalities of Col
 
 <table>
  <tr>
-  <td><a href="Samples/Over all features">Over all features</a></td>  
+  <td><a href="Samples/Over all features">Getting Started</a></td>  
   <td><a href="Samples/ChooseColor">Choose a Color</a></td>
   <td><a href="Samples/Appearance">Appearance</a></td>
  </tr>
