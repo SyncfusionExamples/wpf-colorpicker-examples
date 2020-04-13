@@ -15,17 +15,6 @@ namespace ColorPicker_Appearance
         private bool enableToolTip;
         private FlowDirection flowDirection;
         private bool isAlphaVisible;
-        private Brush brushMode;
-
-        public Brush BrushMode
-        {
-            get { return brushMode; }
-            set
-            {
-                brushMode = value;
-                this.RaisePropertyChanged("BrushMode");
-            }
-        }
 
         public Brush SelectedBrush
         {
