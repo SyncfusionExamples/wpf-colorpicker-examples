@@ -18,7 +18,6 @@ namespace ColorPicker_WPF
     {
         private BrushModes brushModes;
         private Brush selectedBrush = Brushes.Green;
-        private Brush brushMode;
         private Color selectedColor;
         private bool enableSolidToGradientSwitch;
         private bool enableToolTip;
@@ -39,16 +38,6 @@ namespace ColorPicker_WPF
             }
         }
         
-        public Brush BrushMode
-        {
-            get { return brushMode; }
-            set
-            {
-                brushMode = value;
-                this.RaisePropertyChanged("BrushMode");
-            }
-        }
-
         public Color SelectedColor
         {
             get { return selectedColor; }
@@ -148,12 +137,7 @@ namespace ColorPicker_WPF
                 this.RaisePropertyChanged("IsColorPaletteVisible");
             }
         }
-
-
-        protected override void RaisePropertyChanged(string propertyName)
-        {
-            base.RaisePropertyChanged(propertyName);
-        }
+        
         public ViewModel()
         {
 
