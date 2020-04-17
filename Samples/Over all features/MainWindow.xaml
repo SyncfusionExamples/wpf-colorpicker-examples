@@ -12,7 +12,10 @@
         <local:ViewModel></local:ViewModel>
     </Window.DataContext>
 
-    <Grid x:Name="LayoutRoot" Background="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <Grid x:Name="layoutRoot"
+          Background="White" 
+          HorizontalAlignment="Stretch" 
+          VerticalAlignment="Stretch">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -27,25 +30,25 @@
                 <Rectangle Fill="{Binding SelectedBrush,Mode=TwoWay}"
                            Width="50" Height="50" Grid.Row="0"></Rectangle>
                 <syncfusion1:ColorPicker x:Name="colorPicker" Margin="20"
-                                        Background="LightPink"
-                                        Brush="{Binding SelectedBrush,Mode=TwoWay}"
-                                        BorderBrush="Red"
-                                        BrushMode="{Binding BrushModes, Mode=TwoWay}"
-                                        Color="{Binding SelectedColor, Mode=TwoWay}"
-                                        ColorEditBackground="LightGreen"
-                                        VisualizationStyle="{Binding ColorSelectionMode, Mode=TwoWay}"
-                                        EnableSolidToGradientSwitch="{Binding EnableSolidToGradientSwitch, Mode=TwoWay}"
-                                        EnableToolTip="{Binding EnableToolTip, Mode=TwoWay}"
-                                        FlowDirection="{Binding FlowDirection, Mode=TwoWay}"
-                                        GradientBrushDisplayMode="{Binding GradientBrushDisplayMode, Mode=TwoWay}"
-                                        GradientPropertyEditorMode="{Binding GradientPropertyEditorMode, Mode=TwoWay}"
-                                        IsAlphaVisible ="{Binding IsAlphaVisible, Mode=TwoWay}"
-                                        IsColorPaletteVisible ="{Binding IsColorPaletteVisible, Mode=TwoWay}"                                        
+                                         Background="LightPink"
+                                         Brush="{Binding SelectedBrush,Mode=TwoWay}"
+                                         BorderBrush="Red"
+                                         BrushMode="{Binding BrushModes, Mode=TwoWay}"
+                                         Color="{Binding SelectedColor, Mode=TwoWay}"
+                                         ColorEditBackground="LightGreen"
+                                         VisualizationStyle="{Binding ColorSelectionMode, Mode=TwoWay}"
+                                         EnableSolidToGradientSwitch="{Binding EnableSolidToGradientSwitch, Mode=TwoWay}"
+                                         EnableToolTip="{Binding EnableToolTip, Mode=TwoWay}"
+                                         FlowDirection="{Binding FlowDirection, Mode=TwoWay}"
+                                         GradientBrushDisplayMode="{Binding GradientBrushDisplayMode, Mode=TwoWay}"
+                                         GradientPropertyEditorMode="{Binding GradientPropertyEditorMode, Mode=TwoWay}"
+                                         IsAlphaVisible ="{Binding IsAlphaVisible, Mode=TwoWay}"
+                                         IsColorPaletteVisible ="{Binding IsColorPaletteVisible, Mode=TwoWay}"                                        
                                          HorizontalAlignment="Center"
                                          BorderThickness="1" 
                                          VerticalAlignment="Top"  
-                                        Width="200"
-                                        Height="30"
+                                         Width="200"
+                                         Height="30"
                                          Grid.Row="2" >                    
                 </syncfusion1:ColorPicker>
             </Grid>
